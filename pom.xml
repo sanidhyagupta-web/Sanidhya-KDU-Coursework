@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.LibraryManagement2</groupId>
+	<artifactId>ProductionReadLib</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<!-- All modules -->
+	<modules>
+		<module>Library_Api</module>
+		<module>Library_Domain</module>
+		<module>Library_Service</module>
+		<module>Library_Web</module>
+	</modules>
+
+	<!-- Common values -->
+	<properties>
+		<java.version>17</java.version>
+		<spring.boot.version>3.2.1</spring.boot.version>
+	</properties>
+
+	<!-- Central dependency versions -->
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- Spring Boot BOM -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- Swagger annotations -->
+			<dependency>
+				<groupId>io.swagger.core.v3</groupId>
+				<artifactId>swagger-annotations</artifactId>
+				<version>2.2.21</version>
+			</dependency>
+
+			<!-- Springdoc OpenAPI -->
+			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+				<version>2.3.0</version>
+			</dependency>
+
+			<!-- INTERNAL MODULES -->
+			<dependency>
+				<groupId>com.LibraryManagement2</groupId>
+				<artifactId>Library_Domain</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.LibraryManagement2</groupId>
+				<artifactId>Library_Api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.LibraryManagement2</groupId>
+				<artifactId>Library_Service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+
+</project>
