@@ -1,0 +1,67 @@
+type House{
+    houseId : ID!
+    address : String
+    pincode : String
+    rooms : [Room]
+    devices : [Device]
+    memberships : [HouseUser]
+}
+
+type HouseUser{
+    membershipId : ID!
+    house : House!
+    user : User!
+    role : String!
+}
+
+type Room {
+    roomId: ID!
+    type: String
+    numberOfBedrooms: Int
+    numberOfBathrooms: Int
+    devices: [Device]
+}
+
+type Device {
+    kickstonId: ID
+    deviceUsername: String
+    devicePassword : String
+    manufactureDateTime: String
+    manufactureFactoryPlace: String
+    houseId: ID
+    roomId: ID
+}
+
+type User {
+    userId: ID!
+    name: String
+    age: Int
+}
+
+input AuthRequestInput {
+    userId: ID!
+    houseId: ID!
+}
+
+type PageInfo {
+    page: Int!
+    size: Int!
+    totalPages: Int!
+    hasNext: Boolean!
+}
+
+type RoomPage {
+    content: [Room!]!
+    pageInfo: PageInfo!
+}
+
+type HousePage {
+    content: [House!]!
+    pageInfo: PageInfo!
+}
+
+type Query {
+    getAllHousesUserBelong(userId: ID!,page : Int , size:Int): HousePage
+    getAllRooms(auth: AuthRequestInput!): [Room]
+    getAllRoomsAllDevices(auth: AuthRequestInput!,page : Int , size:Int): [Room]
+}
