@@ -1,0 +1,116 @@
+/* Tablets (≤ 1024px) */
+@media (max-width: 1024px) {
+  .TopHeader {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .container3 {
+    flex-direction: column;
+    text-align: center;
+
+    img {
+      margin: 40px 0;
+      width: 350px;
+    }
+  }
+
+  .container4 {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .Header4 {
+    width: 45%;
+    height: auto;
+  }
+
+  .stats-section {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .Info {
+    width: 100%;
+    margin: 40px 20px;
+    padding: 40px;
+  }
+
+  .form {
+    margin: 20px;
+  }
+}
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+  .SubHeader1 {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .container3 {
+    font-size: large;
+
+    img {
+      width: 280px;
+    }
+  }
+
+  .container4 {
+    flex-direction: column;
+  }
+
+  .Header4 {
+    width: 90%;
+  }
+
+  .course-card {
+    width: 90%;
+  }
+
+  .stats-section {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .formlabel {
+    width: 100%;
+  }
+}
+
+/* Small Mobile (≤ 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .TopHeader {
+    padding: 12px;
+  }
+
+  .container3 h1 {
+    font-size: 24px;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .Info {
+    padding: 20px;
+    margin: 20px 10px;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 20px;
+  }
+}
