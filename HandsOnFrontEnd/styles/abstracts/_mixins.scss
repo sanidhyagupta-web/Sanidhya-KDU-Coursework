@@ -1,0 +1,8 @@
+// Currently I am not using any of the mixins. 
+// But if required then can be added into this file.
+
+@mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
