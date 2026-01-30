@@ -1,0 +1,12 @@
+@use "../abstracts/variables" as *;
+
+.btn {
+  padding: 10px;
+  width: 110px;
+  border-radius: 10px;
+}
+
+#Started {
+  background-color: $primary-color;
+  color: $background2;
+}
