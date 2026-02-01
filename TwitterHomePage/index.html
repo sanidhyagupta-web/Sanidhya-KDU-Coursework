@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Twitter</title>
+  <link rel="stylesheet" href="./styles/main.css">
+</head>
+
+<body>
+
+  <!-- overlay -->
+  <div class="overlay"></div>
+
+  <!-- mobile topbar (needed to open drawer) -->
+  <div class="mobile-topbar">
+    <button class="menu-btn" type="button">
+      <img class="profile" src="./icons/profile pic.png" alt="menu">
+    </button>
+    <button class="plus-btn" type="button">+</button>
+  </div>
+
+  <div class="prem">
+    <img src="./icons/premium2.png" alt="">
+  </div>
+
+  <div class="container">
+    <div class="sidebarelements">
+      <div class="ele"><img src="./icons/black-with-white.png" alt="twitter logo"></div>
+
+      <div class="ele" id="home"><img src="./icons/home.svg" alt="home"><a href="#">Home</a></div>
+      <div class="ele"><img src="./icons/search-icon 1.svg" alt="search"><a href="#">Explore</a></div>
+      <div class="ele"><img src="./icons/notif-icon.svg" alt="notifications"><a href="#">Notifications</a></div>
+      <div class="ele"><img src="./icons/follow.png" alt="follow"><a href="#">Follow</a></div>
+      <div class="ele"><img src="./icons/mail-icon.svg" alt="chat"><a href="#">Chat</a></div>
+      <div class="ele"><img src="./icons/grok.png" alt="grok"><a href="#">Grok</a></div>
+      <div class="ele"><img src="./icons/bookmark-icon.svg" alt="bookmarks"><a href="#">Bookmarks</a></div>
+      <div class="ele"><img src="./icons/creator-studio.png" alt="creator studio"><a href="#">Creator Studio</a></div>
+      <div class="ele"><img src="./icons/premium-icon.svg" alt="premium"><a href="#">Premium</a></div>
+      <div class="ele"><img src="./icons/profile-icon.svg" alt="profile"><a href="#">Profile</a></div>
+      <div class="ele"><img src="./icons/more-icon.svg" alt="more"><a href="#">More</a></div>
+
+      <div class="ele"><button id="btn">Post</button></div>
+
+      <div class="ele">
+        <img class="profile" src="./icons/profile pic.png" alt="">
+        <div class="info">
+          <p>Nitish Gupta</p>
+          <p id="accnt">@nit_hck</p>
+        </div>
+        <img id="dots" src="./icons/dot-icon.svg" alt="">
+      </div>
+    </div>
+
+      <!-- Mobile-only sidebar content (shown only on small screens) -->
+      <div class="sidebarelements-mobile">
+        <div class="mobile-profile-header">
+          <img class="profile" src="./icons/profile pic.png" alt="profile">
+          <div class="profile-info">
+            <p class="profile-name">Nitish Gupta</p>
+            <p class="profile-handle">@nit_hck</p>
+          </div>
+        </div>
+
+        <div class="mobile-profile-stats">
+          <div class="stat">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Following</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Followers</div>
+          </div>
+        </div>
+
+        <div class="mobile-menu">
+          <a href="#" class="mobile-menu-item"><img src="./icons/profile-icon.svg" alt="profile">Profile</a>
+          <a href="#" class="mobile-menu-item"><img src="./icons/premium-icon.svg" alt="premium">Premium</a>
+          <a href="#" class="mobile-menu-item"><img src="./icons/creator-studio.png" alt="creator studio">Lists</a>
+          <a href="#" class="mobile-menu-item"><img src="./icons/bookmark-icon.svg" alt="bookmarks">Bookmarks</a>
+          <a href="#" class="mobile-menu-item"><img src="./icons/grok.png" alt="communities">Communities</a>
+          <a href="#" class="mobile-menu-item"><img src="./icons/monetiation.svg" alt="monetization">Monetization</a>
+          <a href="#" class="mobile-menu-item"><img src="./icons/more-icon.svg" alt="settings and privacy">Settings and privacy</a>
+          <a href="#" class="mobile-menu-item"><img src="./icons/black-with-white.png" alt="">Log out</a>
+        </div>
+      </div>
+
+    <div id="feed" class="feed"></div>
+  </div>
+
+  <div class="composer" style="display:none;">
+    <div class="top">
+      <span class="close">x</span>
+      <span class="drafts">Drafts</span>
+    </div>
+
+    <div class="content">
+      <div><img class="profile" src="./icons/profile pic.png" alt=""></div>
+      <textarea id="postText" placeholder="What’s happening?"></textarea>
+      <div id="mediaPreview" class="media-preview"></div>
+    </div>
+
+    <div class="reply">
+      <span><img src="./icons/world-icon.svg" alt=""></span>
+      <span>Everyone can reply</span>
+    </div>
+
+    <div class="bottom">
+      <div class="icons">
+        <span id="galleryBtn"><img src="./icons/gallery-icon.svg" alt="gallery"></span>
+        <span><img src="./icons/gif-icon.svg" alt="gif"></span>
+        <span><img src="./icons/bullet-icon.svg" alt="bullet"></span>
+        <span><img src="./icons/smiley-icon.svg" alt="smiley"></span>
+        <span><img src="./icons/calendar-icon.svg" alt="calendar"></span>
+        <span><img src="./icons/location-icon.svg" alt="location"></span>
+      </div>
+
+      <input type="file" id="galleryInput" accept="image/*,video/*" multiple style="display:none;" />
+      <button class="post-btn">Post</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+/* =========================
+   Desktop View (min-width: 415px)
+========================= */
+
+@media (min-width: 415px) {
+  .sidebarelements {
+    position: fixed;
+    left: 20px;
+    top: 0;
+    width: 320px;
+  }
+
+  .container {
+    justify-content: center;
+  }
+
+  .feed {
+    flex: 0 0 680px;
+    max-width: 680px;
+    margin: 90px 0 0;
+  }
+
+  #btn {
+    display: block;
+  }
+}

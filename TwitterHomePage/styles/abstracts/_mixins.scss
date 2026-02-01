@@ -1,0 +1,47 @@
+/* =========================
+   Reusable Mixins
+========================= */
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin button-reset {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+@mixin hover-bg {
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+@mixin blue-hover-bg {
+  &:hover {
+    background: rgba(29, 155, 240, 0.12);
+  }
+}
+
+@mixin rounded-full {
+  border-radius: 999px;
+}
+
+@mixin border-bottom {
+  border-bottom: 1px solid var(--border);
+}

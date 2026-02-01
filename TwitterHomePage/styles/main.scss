@@ -1,0 +1,777 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --drawer-w: 86%;
+  --drawer-max: 360px;
+
+  --bg: #000;
+  --text: #fff;
+  --muted: #71767b;
+  --border: #2f3336;
+  --blue: #1d9bf0;
+  --blue-hover: #1a8cd8;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.sidebarelements {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  padding-left: 12px;
+  padding-right: 20px;
+  min-width: 320px;
+}
+
+.sidebarelements-mobile {
+  display: none;
+}
+
+@media (min-width: 415px) {
+  .sidebarelements {
+    position: fixed;
+    left: 20px;
+    top: 0;
+    width: 320px;
+  }
+
+  .container {
+    justify-content: center;
+  }
+
+  .feed {
+    flex: 0 0 680px;
+    max-width: 680px;
+    margin: 90px 0 0;
+  }
+}
+
+.ele {
+  display: flex;
+  align-items: center;
+}
+
+.ele img {
+  width: 30px;
+  height: 30px;
+  margin: 10px 0;
+}
+
+.sidebarelements a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: large;
+  margin-left: 30px;
+}
+
+.sidebarelements p {
+  color: var(--text);
+  font-size: large;
+  margin-left: 30px;
+}
+
+.sidebarelements .ele:hover {
+  background: rgb(26, 26, 26);
+  border-radius: 999px;
+}
+
+#home img {
+  height: 50px;
+  width: 30px;
+}
+
+#home a {
+  font-weight: 800;
+}
+
+.ele button {
+  padding: 20px;
+  width: 220px;
+  background: rgb(3, 189, 251);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: large;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+}
+
+.profile {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#accnt {
+  font-size: small;
+  color: gray;
+}
+
+#dots {
+  margin-left: 60px;
+}
+
+/* Feed */
+.feed {
+  flex: 1;
+  max-width: 680px;
+  margin: 90px auto 0;
+  padding: 12px 0;
+}
+
+.composer {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(640px, calc(100% - 24px));
+  z-index: 1000;
+
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65);
+}
+
+.composer .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.composer .close {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: var(--text);
+  font-size: 18px;
+}
+
+.composer .close:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.composer .drafts {
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.composer .content {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.composer .content .profile {
+  width: 44px;
+  height: 44px;
+}
+
+#postText {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+
+  color: #e7e9ea;
+  font-size: 22px;
+  line-height: 1.35;
+
+  min-height: 90px;
+  resize: none;
+  padding-top: 6px;
+}
+
+#postText::placeholder {
+  color: var(--muted);
+}
+
+.media-preview {
+  grid-column: 1 / -1; 
+  display: none;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.media-preview img,
+.media-preview video {
+  width: 120px;
+  height: 120px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.composer .reply {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 600;
+
+  padding: 8px 10px;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.composer .reply:hover {
+  background: rgba(29, 155, 240, 0.12);
+}
+
+.composer .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.composer .icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.composer .icons span {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.composer .icons span:hover {
+  background: rgba(29, 155, 240, 0.12);
+}
+
+.composer .icons img {
+  width: 20px;
+  height: 20px;
+}
+
+.composer .post-btn {
+  background: var(--blue);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.composer .post-btn:hover {
+  background: var(--blue-hover);
+}
+
+.composer .post-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================
+   Tweet Card
+========================= */
+.tweet {
+  width: 100%;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 12px;
+
+  display: flex;       
+  gap: 12px;         
+  pointer-events: auto;
+}
+
+.tweet .avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.tweet-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.tweet-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.tweet-name {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.tweet-handle,
+.tweet-time {
+  color: var(--muted);
+}
+
+.tweet-text {
+  margin-top: 4px;
+  font-size: 15px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.tweet-media {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.tweet-media img,
+.tweet-media video {
+  width: 100%;
+  max-height: 360px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.tweet-media:has(:only-child) {
+  grid-template-columns: 1fr;
+}
+
+.tweet-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  max-width: 420px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.tweet-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  border: none;
+  background: transparent;
+  color: inherit;
+
+  padding: 6px 8px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.tweet-actions button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tweet-actions img {
+  width: 18px;
+  height: 18px;
+}
+
+/* =========================
+   Comments
+========================= */
+.comment-box {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.comment-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 560px;
+}
+
+.comment-row .profile {
+  width: 36px;
+  height: 36px;
+}
+
+.comment-input {
+  flex: 1;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 8px;
+  resize: vertical;
+  min-height: 44px;
+  max-height: 160px;
+  outline: none;
+}
+
+.comment-send {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.comment-item {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.02);
+  color: var(--text);
+  width: 100%;
+  max-width: 560px;
+  box-sizing: border-box;
+}
+
+.prem {
+  position: fixed;
+  top: 0;
+  right: -150px;
+  height: 100vh;
+  width: 500px;
+  pointer-events: none;
+}
+
+.prem img {
+  height: 800px;
+  width: 360px;
+  object-fit: cover;
+}
+
+.overlay {
+  display: none;
+}
+
+.mobile-topbar {
+  display: none;
+}
+
+@media (max-width: 414px) {
+  body {
+    position: relative;
+  }
+
+  .mobile-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 5000;
+  }
+
+  .mobile-topbar .menu-btn {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .mobile-topbar .menu-btn img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .mobile-topbar .plus-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .prem {
+    display: none;
+  }
+
+  .container {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: var(--drawer-w);
+    max-width: var(--drawer-max);
+    height: 100vh;
+
+    background: var(--bg);
+    border-right: 1px solid var(--border);
+    z-index: 3000;
+
+    transition: left 0.25s ease;
+    display: block;
+  }
+
+  .container.open {
+    left: 0;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 2500;
+    display: none;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  .overlay.show {
+    display: block;
+  }
+
+  .sidebarelements {
+    display: none; 
+  }
+
+  .sidebarelements-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 16px 14px;
+    height: calc(100vh - 52px);
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+
+  .mobile-profile-header {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mobile-profile-header .profile {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .profile-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .profile-handle {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .mobile-profile-stats {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-number {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .mobile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 14px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .mobile-menu-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .mobile-menu-item img {
+    width: 24px;
+    height: 24px;
+  }
+
+  #btn {
+    display: none;
+  }
+
+  .feed {
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+    padding: 12px;
+    position: fixed;
+    top: 52px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    height: calc(100vh - 52px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+
+  .composer {
+    width: 100%;
+    left: 0;
+    top: 52px;
+    transform: none;
+    border-radius: 0;
+    z-index: 2000;
+    position: fixed;
+    padding: 16px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    max-height: calc(100vh - 52px);
+    overflow-y: auto;
+    display: none; 
+  }
+
+  .composer[style*="display: block"] {
+    display: block; 
+  }
+
+  .comment-box {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .comment-row {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+
+  .comment-row .profile {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .comment-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 10px;
+    border-radius: 8px;
+    resize: vertical;
+    min-height: 40px;
+    max-height: 140px;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+  }
+
+  .comment-send {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .comment-item {
+    margin-top: 8px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--text);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-size: 13px;
+  }
+}
