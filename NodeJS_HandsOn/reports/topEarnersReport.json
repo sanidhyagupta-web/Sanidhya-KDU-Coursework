@@ -1,0 +1,32 @@
+[
+  {
+    "rank": 1,
+    "name": "Frank Miller",
+    "department": "Engineering",
+    "salary": 120000
+  },
+  {
+    "rank": 2,
+    "name": "Henry Davis",
+    "department": "Sales",
+    "salary": 95000
+  },
+  {
+    "rank": 3,
+    "name": "Charlie Brown",
+    "department": "Engineering",
+    "salary": 91000
+  },
+  {
+    "rank": 4,
+    "name": "Alice Johnson",
+    "department": "Engineering",
+    "salary": 85000
+  },
+  {
+    "rank": 5,
+    "name": "David Lee",
+    "department": "HR",
+    "salary": 75000
+  }
+]

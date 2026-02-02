@@ -1,0 +1,27 @@
+{
+  "totalEmployees": 8,
+  "totalSalary": 651000,
+  "averageSalary": "81375.00",
+  "departmentBreakdown": {
+    "Engineering": {
+      "count": 3,
+      "totalSalary": 296000,
+      "averageSalary": "98666.67"
+    },
+    "HR": {
+      "count": 2,
+      "totalSalary": 137000,
+      "averageSalary": "68500.00"
+    },
+    "Sales": {
+      "count": 2,
+      "totalSalary": 150000,
+      "averageSalary": "75000.00"
+    },
+    "Marketing": {
+      "count": 1,
+      "totalSalary": 68000,
+      "averageSalary": "68000.00"
+    }
+  }
+}

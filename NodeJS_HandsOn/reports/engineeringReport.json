@@ -1,0 +1,20 @@
+{
+  "department": "Engineering",
+  "totalEmployees": 3,
+  "employees": [
+    {
+      "name": "Alice Johnson",
+      "salary": 85000
+    },
+    {
+      "name": "Charlie Brown",
+      "salary": 91000
+    },
+    {
+      "name": "Frank Miller",
+      "salary": 120000
+    }
+  ],
+  "totalSalary": 296000,
+  "averageSalary": "98666.67"
+}
