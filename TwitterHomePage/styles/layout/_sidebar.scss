@@ -1,0 +1,71 @@
+/* =========================
+   Desktop Sidebar
+========================= */
+
+.sidebarelements {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  padding-left: 12px;
+  padding-right: 20px;
+  min-width: 320px;
+}
+
+.sidebarelements-mobile {
+  display: none;
+}
+
+.ele {
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 30px;
+    height: 30px;
+    margin: 10px 0;
+  }
+}
+
+.sidebarelements a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: large;
+  margin-left: 30px;
+}
+
+.sidebarelements p {
+  color: var(--text);
+  font-size: large;
+  margin-left: 30px;
+}
+
+.sidebarelements .ele:hover {
+  background: rgb(26, 26, 26);
+  border-radius: 999px;
+}
+
+#home img {
+  height: 50px;
+  width: 30px;
+}
+
+#home a {
+  font-weight: 800;
+}
+
+.profile {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#accnt {
+  font-size: small;
+  color: gray;
+}
+
+#dots {
+  margin-left: 60px;
+}

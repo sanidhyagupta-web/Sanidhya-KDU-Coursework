@@ -1,0 +1,44 @@
+/* =========================
+   Layout Container & Feed
+========================= */
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.feed {
+  flex: 1;
+  max-width: 680px;
+  margin: 90px auto 0;
+  padding: 12px 0;
+}
+
+#btn {
+  padding: 20px;
+  width: 220px;
+  background: rgb(3, 189, 251);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: large;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+}
+
+.prem {
+  position: fixed;
+  top: 0;
+  right: -150px;
+  height: 100vh;
+  width: 500px;
+  pointer-events: none;
+
+  img {
+    height: 800px;
+    width: 360px;
+    object-fit: cover;
+  }
+}
