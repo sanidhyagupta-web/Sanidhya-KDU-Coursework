@@ -1,0 +1,296 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f1f1f3;
+  color: #333;
+}
+
+.app-header {
+  background: #1e73c6;
+  color: white;
+  padding: 14px 20px;
+}
+.app-header .title {
+  font-weight: 600;
+}
+
+.viewport {
+  display: flex;
+  height: calc(100vh - 62px);
+  gap: 16px;
+  padding: 20px;
+}
+
+.main-panel {
+  flex: 3;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.side-panel {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 12px;
+  border-bottom: 1px solid #e8e8e8;
+  flex-wrap: wrap;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 120px;
+}
+.logo-wrap img.logo {
+  width: 48px;
+  height: 36px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.logo-wrap .stock-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+.price-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 100px;
+}
+.price-wrap > div:first-child {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+.price-wrap .price-val {
+  font-size: 22px;
+  font-weight: 600;
+  color: #24a744;
+}
+.price-wrap .price-change {
+  font-size: 12px;
+  color: #666;
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+}
+.qty input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 110px;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+.qty input:focus {
+  outline: none;
+  border-color: #1e73c6;
+  box-shadow: 0 0 4px rgba(30, 115, 198, 0.3);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+.actions button {
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+.actions button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.actions button:active {
+  transform: translateY(0);
+}
+.actions button.buy {
+  background: #28c76f;
+  color: #fff;
+}
+.actions button.sell {
+  background: #ff6b6b;
+  color: #fff;
+}
+
+.chart-area {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+  flex-direction: row;
+  padding-bottom: 30px;
+}
+
+.y-axis {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.y-axis .scale {
+  font-size: 12px;
+  color: #666;
+  text-align: right;
+  padding-right: 6px;
+}
+
+.x-axis {
+  position: absolute;
+  left: calc(60px + 12px);
+  bottom: 6px;
+  width: calc(100% - 60px - 24px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  color: #6b6b6b;
+  font-size: 12px;
+  line-height: 1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  box-sizing: border-box;
+  padding: 0 6px;
+  z-index: 5;
+}
+
+.x-axis .x-scale {
+  display: inline-block;
+  white-space: nowrap;
+  pointer-events: none;
+  color: #555;
+}
+
+.chart-container {
+  flex: 1;
+  position: relative;
+  height: 500px;
+  border: 1px solid #bbb;
+  background: #fff;
+  overflow: hidden;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-size: 100px 100px, 100% 100px;
+  background-repeat: repeat, repeat;
+}
+
+.bars {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 8px;
+  gap: 6px;
+  overflow-x: auto;
+}
+
+.bar {
+  width: 20px;
+  border-radius: 3px 3px 0 0;
+  flex: 0 0 20px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06) 1px inset, 0 2px 4px rgba(0, 0, 0, 0.06) 1px;
+}
+.bar.positive {
+  background: #28c76f;
+}
+.bar.negative {
+  background: #ff6b6b;
+}
+
+.history-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.history-list {
+  flex: 1;
+  overflow: auto;
+}
+
+.history-item {
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+.history-item .meta {
+  font-size: 12px;
+  color: #666;
+}
+.history-item .action {
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+}
+.history-item .action.buy {
+  background: #e6f8ec;
+  color: #1b7b3a;
+}
+.history-item .action.sell {
+  background: #ffecec;
+  color: #b12b2b;
+}
+
+@media (max-width: 900px) {
+  .viewport {
+    flex-direction: column;
+  }
+  .main-panel {
+    order: 1;
+  }
+  .side-panel {
+    order: 2;
+    height: 270px;
+  }
+  .controls {
+    justify-content: flex-start;
+    gap: 12px;
+  }
+}/*# sourceMappingURL=stockstyle.css.map */
