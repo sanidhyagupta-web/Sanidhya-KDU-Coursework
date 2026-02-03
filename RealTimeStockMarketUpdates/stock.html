@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KDU Stock Market Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/stockstyle.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="title">KDU Stock Market Dashboard</div>
+  </header>
+
+  <main class="viewport">
+    <section class="main-panel">
+      <div class="controls">
+        <div class="logo-wrap">
+          <img class="logo" src="https://mir-s3-cdn-cf.behance.net/projects/404/af1307136664867.Y3JvcCw1NzUzLDQ1MDAsNDIsMA.jpg" alt="Zomato">
+          <div class="stock-name">Zomato</div>
+        </div>
+
+        <div class="price-wrap">
+          <div>Price</div>
+          <div class="price-val">--</div>
+          <div class="price-change">&nbsp;</div>
+        </div>
+
+        <div class="qty">
+          <input id="qtyInput" type="number" placeholder="Enter QTY" min="1">
+        </div>
+
+        <div class="actions">
+          <button id="buyBtn" class="buy">Buy</button>
+          <button id="sellBtn" class="sell">Sell</button>
+        </div>
+      </div>
+
+      <div class="chart-area">
+        <aside class="y-axis">
+          <div class="scale">500</div>
+          <div class="scale">400</div>
+          <div class="scale">300</div>
+          <div class="scale">200</div>
+          <div class="scale">100</div>
+          <div class="scale">0</div>
+        </aside>
+
+        <div id="chartContainer" class="chart-container">
+          <div id="bars" class="bars"></div>
+        </div>
+
+        <div class="x-axis" aria-hidden="true">
+          <span class="x-scale">0</span>
+          <span class="x-scale">100</span>
+          <span class="x-scale">200</span>
+          <span class="x-scale">300</span>
+          <span class="x-scale">400</span>
+          <span class="x-scale">500</span>
+        </div>
+      </div>
+    </section>
+
+    <aside class="side-panel">
+      <div class="history-title">History</div>
+      <div id="historyList" class="history-list"></div>
+    </aside>
+  </main>
+
+  <script src="stockExchange.js"></script>
+</body>
+</html>

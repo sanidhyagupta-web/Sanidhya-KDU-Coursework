@@ -1,0 +1,19 @@
+@media (max-width: 900px) {
+  .viewport {
+    flex-direction: column;
+  }
+
+  .main-panel {
+    order: 1;
+  }
+
+  .side-panel {
+    order: 2;
+    height: 270px;
+  }
+
+  .controls {
+    justify-content: flex-start;
+    gap: 12px;
+  }
+}

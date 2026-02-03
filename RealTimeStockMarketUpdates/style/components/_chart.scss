@@ -1,0 +1,97 @@
+@use "../abstracts/variables" as *;
+
+.chart-area {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+  flex-direction: row;
+  padding-bottom: $x-axis-h;
+}
+
+.y-axis {
+  width: $y-axis-w;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+  .scale {
+    font-size: 12px;
+    color: $muted;
+    text-align: right;
+    padding-right: 6px;
+  }
+}
+
+.x-axis {
+  position: absolute;
+  left: calc(#{$y-axis-w} + 12px);
+  bottom: 6px;
+  width: calc(100% - #{$y-axis-w} - 24px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  color: $x-axis-color;
+  font-size: 12px;
+  line-height: 1;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 0 6px;
+  z-index: 5;
+}
+
+.x-axis .x-scale {
+  display: inline-block;
+  white-space: nowrap;
+  pointer-events: none;
+  color: $x-scale-color;
+}
+
+.chart-container {
+  flex: 1;
+  position: relative;
+  height: $chart-height;
+  border: 1px solid #bbb;
+  background: $panel-bg;
+  overflow: hidden;
+  background-image: linear-gradient(
+      to right,
+       $chart-container,
+      transparent 1px
+    ),
+  linear-gradient(to bottom, $chart-container, transparent 1px);
+  background-size: 100px 100px, 100% 100px;
+  background-repeat: repeat, repeat;
+}
+
+.bars {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 8px;
+  gap: 6px;
+  overflow-x: auto;
+}
+
+.bar {
+  width: 20px;
+  border-radius: 3px 3px 0 0;
+  flex: 0 0 20px;
+  box-shadow: 0 1px 0 $chart-container inset,
+    0 2px 4px $chart-container;
+
+  &.positive {
+    background: $green-3;
+  }
+
+  &.negative {
+    background: $red-2;
+  }
+}
