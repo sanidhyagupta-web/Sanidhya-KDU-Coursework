@@ -7,13 +7,12 @@ export class Todo{
     id : string
 
     @IsString()
-    @Min(3)
-    @Max(100)
+    @Length(3, 100)
     title : string
 
     @IsOptional()
     @IsString()
-    @Max(500)
+    @MaxLength(500)
     description?:string
 
     @IsBoolean()
