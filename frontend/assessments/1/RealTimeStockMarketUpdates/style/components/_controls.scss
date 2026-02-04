@@ -1,0 +1,111 @@
+@use "../abstracts/variables" as *;
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 12px;
+  border-bottom: 1px solid #e8e8e8;
+  flex-wrap: wrap;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 120px;
+
+  img.logo {
+    width: 48px;
+    height: 36px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .stock-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+  }
+}
+
+.price-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 100px;
+
+  > div:first-child {
+    font-size: 12px;
+    color: $muted;
+    font-weight: 500;
+  }
+
+  .price-val {
+    font-size: 22px;
+    font-weight: 600;
+    color: #24a744;
+  }
+
+  .price-change {
+    font-size: 12px;
+    color: $muted;
+  }
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+
+  input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 110px;
+    font-size: 13px;
+    transition: all 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $accent;
+      box-shadow: 0 0 4px rgba($accent, 0.3);
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+
+  button {
+    padding: 8px 18px;
+    border-radius: 6px;
+    border: 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &.buy {
+      background: #28c76f;
+      color: #fff;
+    }
+
+    &.sell {
+      background: #ff6b6b;
+      color: #fff;
+    }
+  }
+}
