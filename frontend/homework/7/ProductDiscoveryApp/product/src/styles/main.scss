@@ -1,0 +1,9 @@
+@use "./base/variables";
+@use "./base/reset";
+@use "./base/mixins";
+
+@use "./components/Header";
+@use "./components/ProductCard";
+@use "./components/ProductDetails";
+
+@use "./pages/Home";
