@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Serverless Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #f4f6f9;
+    }
+
+    h1 {
+      font-size: 40px;
+      color: #333;
+    }
+
+    #value {
+      font-size: 50px;
+      color: #007bff;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 18px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Counter: <span id="value">Loading...</span></h1>
+  <button onclick="increment()">Add Counter</button>
+
+  <script>
+    const apiUrl = "https://afekjdyuul.execute-api.ap-southeast-1.amazonaws.com/prod/counter";
+
+    async function loadCounter() {
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        document.getElementById("value").innerText = data.value;
+      } catch (error) {
+        console.error("Error loading counter:", error);
+        document.getElementById("value").innerText = "Error";
+      }
+    }
+
+    async function increment() {
+      try {
+        const response = await fetch(apiUrl, {
+          method: "PUT"
+        });
+        const data = await response.json();
+        document.getElementById("value").innerText = data.value;
+      } catch (error) {
+        console.error("Error updating counter:", error);
+      }
+    }
+
+    loadCounter();
+  </script>
+
+</body>
+</html>
